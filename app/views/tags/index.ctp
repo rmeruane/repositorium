@@ -9,7 +9,16 @@ $this->viewVars['title_for_layout'] = $title;
 
 <?php echo $this->Form->create('Tag', array('action' => 'process')); ?>
 
-<?php echo $this->Form->input('search', array('label' => false));?>	  
+<?php echo $this->Form->input('search', array('label' => false));?>
+
+<div class="input select">
+	<div class="checkbox">
+		<input type="checkbox" name="data[Option][id][]" value="title" id="OptionId1"><label class="search-option" for="OptionId1">Title</label>
+		<input type="checkbox" name="data[Option][id][]" value="content" id="OptionId2"><label class="search-option" for="OptionId2">Content</label>
+		<input type="checkbox" name="data[Option][id][]" value="filename" id="OptionId3"><label class="search-option" for="OptionId3">Files</label>
+		<input type="checkbox" name="data[Option][id][]" value="tags" id="OptionId4"><label class="search-option" for="OptionId4">Tags</label>
+	</div>
+</div>
 
 <?php if(!empty($criterias)): ?>
 <div class="input select">
