@@ -15,7 +15,7 @@ $this->viewVars['title_for_layout'] = $title;
 	<div class="checkbox">
 		<input type="checkbox" name="data[Option][id][]" value="title" id="OptionId1"><label class="search-option" for="OptionId1">Title</label>
 		<input type="checkbox" name="data[Option][id][]" value="content" id="OptionId2"><label class="search-option" for="OptionId2">Content</label>
-		<input type="checkbox" name="data[Option][id][]" value="filename" id="OptionId3"><label class="search-option" for="OptionId3">Files</label>
+		<?php if(in_array("attachFile",$constituents)) echo "<input type=\"checkbox\" name=\"data[Option][id][]\" value=\"filename\" id=\"OptionId3\"><label class=\"search-option\" for=\"OptionId3\">Files</label>";?>
 		<input type="checkbox" name="data[Option][id][]" value="tags" id="OptionId4"><label class="search-option" for="OptionId4">Tags</label>
 	</div>
 </div>

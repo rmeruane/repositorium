@@ -12,7 +12,7 @@
 class TagsController extends AppController {
 
 	var $helpers = array('Js' => array('Jquery'));
-	var $uses = array('Criteria', 'Tag', 'Document', 'Attachfile');
+	var $uses = array('Criteria', 'Tag', 'Document', 'Attachfile', 'ConstituentsKit');
 	
 	/**
 	 * Criteria Model
@@ -31,7 +31,12 @@ class TagsController extends AppController {
 		)
 	);
 	
-	$this->set(compact('criterias'));	
+	$constituents = $this->ConstituentsKit->find('list', array(
+					'conditions' => array('ConstituentsKit.kit_id' => $repo['Repository']['kit_id'], 'ConstituentsKit.constituent_id' != '0'), 
+					'recursive' => 1,
+					'fields'=>array('Constituent.sysname')));
+	
+	$this->set(compact('criterias','constituents'));	
   }
   
   //función auxiliar hecha para evitar elementos repetidos dentro del arreglo (emular un conjunto)
